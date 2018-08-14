@@ -1,0 +1,3 @@
+---
+# defaults file for {{ role_name }}
+#{{ role_name }}_parameter: value
