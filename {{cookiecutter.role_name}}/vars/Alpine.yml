@@ -1,0 +1,3 @@
+---
+# vars file for {{ cookiecutter.role_name }}
+#{{ cookiecutter.role_name }}_parameter: value

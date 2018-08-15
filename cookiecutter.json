@@ -1,0 +1,9 @@
+{
+    "role_name": "role_name",
+    "scenario_name": "default",
+    "author": "Robert de Bock",
+    "description": "your description",
+    "company": "your company (optional)",
+    "license": ["Apache"],
+    "min_ansible_version": 2.4
+}
