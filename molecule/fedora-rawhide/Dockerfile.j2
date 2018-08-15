@@ -1,7 +1,4 @@
 # Molecule managed
-
-{% if item.registry is defined %}
-FROM {{ item.registry.url }}/{{ item.image }}
-{% else %}
+{% raw -%}
 FROM {{ item.image }}
-{% endif %}
+{%- endraw %}
