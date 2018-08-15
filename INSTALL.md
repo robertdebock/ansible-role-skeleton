@@ -4,6 +4,7 @@ Installation
 To use this Ansible role skeleton, as [described in Ansible Galaxy documentation](https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#using-a-custom-role-skeleton):
 
 ```
+export keep_trailing_newline=True
 ansible-galaxy init --role-skeleton=/path/to/skeleton role_name
 ```
 

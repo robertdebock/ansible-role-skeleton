@@ -1,2 +1,11 @@
 ---
 # tasks file for {{ role_name }}
+- name: load default variables
+  include_vars:
+    file: default.yml
+
+- name: load os-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - default.yml
