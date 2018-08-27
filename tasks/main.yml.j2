@@ -5,7 +5,7 @@
     file: default.yml
 
 - name: load os-specific variables
-  include_vars: "{{ item }}"
+  include_vars: {% raw -%}"{{ item }}"{%- endraw %}
   with_first_found:
     - {% raw -%}"{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"{%- endraw %}
     - {% raw -%}"{{ ansible_distribution }}.yml"{%- endraw %}
