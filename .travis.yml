@@ -1,0 +1,2 @@
+  slack: robertdebock:${slack_token}
+  email: false
