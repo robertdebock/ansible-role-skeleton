@@ -26,3 +26,5 @@ role_skeleton_ignore = ^.git$,^.*/.git_keep$
 Followed by `ansible-galaxy init role_name`.
 
 Don't include `ansible-role` to the role name, for example use `java` instead of `ansible-role-java`.
+
+To allow Slack notifications, set `slack_token` as a (secret) variable in Travis CI.
