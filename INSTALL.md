@@ -12,6 +12,7 @@ find ./vars -name '*.yml' -exec sed -i -e '$a\' {} \;
 find ./ -name .travis.yml -exec sed -i -e '$a\' {} \;
 find ./meta -name main.yml -exec sed -i -e '$a\' {} \;
 find ./handlers -name main.yml -exec sed -i -e '$a\' {} \;
+find ./defaults -name main.yml -exec sed -i -e '$a\' {} \;
 rm INSTALL.md
 ```
 
