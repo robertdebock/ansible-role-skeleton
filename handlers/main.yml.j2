@@ -1,2 +1,7 @@
 ---
 # handlers file for {{ role_name }}
+- name: restart software
+  service: "{%raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
+    state: restarted
+  when:
+    - ansible_virtualization_type != "docker"
