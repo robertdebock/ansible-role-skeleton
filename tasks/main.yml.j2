@@ -1,33 +1,23 @@
 ---
 # tasks file for {{ role_name }}
-- name: load default variables
-  include_vars:
-    file: default.yml
-
-- name: load os-specific variables
-  include_vars: {% raw -%}"{{ item }}"{%- endraw %}
-  with_first_found:
-    - {% raw -%}"{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"{%- endraw %}
-    - {% raw -%}"{{ ansible_distribution }}.yml"{%- endraw %}
-    - default.yml
-
-- name: install software
+- name: install {{ role_name }}
   package:
-    name: {% raw -%}"{{ item }}"{%- endraw %}
-    state: present
-  with_items:
-    - "{%raw -%}{{{%- endraw %} {{ role_name }}_packages {%raw -%}}}{%- endraw %}"
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages[ansible_distribution]
+          | default ({{ role_name }}_packages['default'] ) {%raw -%}}}{%- endraw %}"
+    state: "{% raw -%}{{{%- endraw %} {{ role_name }}_package_state {%raw -%}}}{%- endraw %}"
 
-- name: configure software
+- name: configure {{ role_name }}
   template:
-    src: "{%raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}".j2
-    dest: "{%raw -%}{{{%- endraw %} {{ role_name }}_config_directory {%raw -%}}}{%- endraw %}"/"{%raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}"
+    src: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}.j2"
+    dest: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory[ansible_distribution]
+          | default ({{ role_name }}_config_directory['default'] ) {%raw -%}}}{%- endraw %}/{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}"
   notify:
-    - restart software
+    - restart {{ role_name }}
 
-- name: start and enable software
+- name: start and enable {{ role_name }}
   service:
-    name: "{%raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service[ansible_distribution]
+          | default ({{ role_name }}_service['default'] ) {%raw -%}}}{%- endraw %}"
     state: started
     enabled: yes
   when:

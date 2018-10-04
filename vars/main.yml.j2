@@ -1,0 +1,29 @@
+---
+# vars file for {{ role_name }}
+{{ role_name }}_packages:
+  default:
+    - {{ role_name }}
+  Alpine:
+    - {{ role_name }}
+  Archlinux:
+    - {{ role_name }}
+  Debian:
+    - {{ role_name }}
+  CentOS:
+    - {{ role_name }}
+  Fedora:
+    - {{ role_name }}
+  openSUSE Leap:
+    - {{ role_name }}
+  openSUSE Tumbleweed:
+    - {{ role_name }}
+  Ubuntu:
+    - {{ role_name }}
+
+{{ role_name }}_config_directory:
+  default: /etc
+
+{{ role_name }}_config_file: {{ role_name }}.conf
+
+{{ role_name }}_service:
+  default: {{ role_name }}
