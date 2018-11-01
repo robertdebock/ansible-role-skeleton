@@ -2,22 +2,19 @@
 # tasks file for {{ role_name }}
 - name: install {{ role_name }}
   package:
-    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages[ansible_distribution]
-          | default ({{ role_name }}_packages['default'] ) {%raw -%}}}{%- endraw %}"
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages {%raw -%}}}{%- endraw %}"
     state: "{% raw -%}{{{%- endraw %} {{ role_name }}_package_state {%raw -%}}}{%- endraw %}"
 
 - name: configure {{ role_name }}
   template:
     src: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}.j2"
-    dest: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory[ansible_distribution]
-          | default ({{ role_name }}_config_directory['default'] ) {%raw -%}}}{%- endraw %}/{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}"
+    dest: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory {%raw -%}}}{%- endraw %}"
   notify:
     - restart {{ role_name }}
 
 - name: start and enable {{ role_name }}
   service:
-    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service[ansible_distribution]
-          | default ({{ role_name }}_service['default'] ) {%raw -%}}}{%- endraw %}"
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
     state: started
     enabled: yes
   when:

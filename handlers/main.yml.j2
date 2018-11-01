@@ -2,8 +2,7 @@
 # handlers file for {{ role_name }}
 - name: restart {{ role_name }}
   service:
-    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service[ansible_distribution]
-          | default ({{ role_name }}_service['default'] ) {%raw -%}}}{%- endraw %}"
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
     state: restarted
   when:
     - ansible_virtualization_type != "docker"
