@@ -11,6 +11,8 @@ _{{ role_name }}_packages:
     - {{ role_name }}
   CentOS:
     - {{ role_name }}
+  CentOS-7:
+    - {{ role_name }}
   Fedora:
     - {{ role_name }}
   openSUSE Leap:
@@ -20,16 +22,16 @@ _{{ role_name }}_packages:
   Ubuntu:
     - {{ role_name }}
 
-{{ role_name }}_packages: "_{% raw -%}{{{%- endraw %} {{ role_name }}_packages[ansible_distribution] | default(_{{ role_name }}_packages['default']) {% raw -%}}}{%- endraw %}"
+{{ role_name }}_packages: "{% raw -%}{{{%- endraw %} _{{ role_name }}_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version] | default(_{{ role_name }}_packages[ansible_distribution] | default(_{{ role_name }}_packages['default'])) {% raw -%}}}{%- endraw %}"
 
 _{{ role_name }}_config_directory:
   default: /etc
 
-{{ role_name }}_config_directory: "_{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory[ansible_distribution] | default(_{{ role_name }}_config_directory['default']) {% raw -%}}}{%- endraw %}"
+{{ role_name }}_config_directory: "{% raw -%}{{{%- endraw %} _{{ role_name }}_config_directory[ansible_distribution] | default(_{{ role_name }}_config_directory['default']) {% raw -%}}}{%- endraw %}"
 
 {{ role_name }}_config_file: {{ role_name }}.conf
 
 _{{ role_name }}_service:
   default: {{ role_name }}
 
-{{ role_name }}_service: "_{% raw -%}{{{%- endraw %} {{ role_name }}_service[ansible_distribution] | default(_{{ role_name }}_service['default']) {% raw -%}}}{%- endraw %}"
+{{ role_name }}_service: "{% raw -%}{{{%- endraw %} _{{ role_name }}_service[ansible_distribution] | default(_{{ role_name }}_service['default']) {% raw -%}}}{%- endraw %}"
