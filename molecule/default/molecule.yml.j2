@@ -40,6 +40,10 @@ platforms:
     image: ubuntu:devel
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      all:
+        {{ role_name }}_ignore_docker: no
   lint:
     name: ansible-lint
   config_options:

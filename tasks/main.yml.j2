@@ -18,4 +18,4 @@
     state: started
     enabled: yes
   when:
-    - ansible_virtualization_type != "docker"
+    - ansible_virtualization_type != "docker" or {{ role_name }}_ignore_docker
