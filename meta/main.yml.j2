@@ -33,7 +33,7 @@ galaxy_info:
         - bionic
 
   galaxy_tags:
-    - {{ role_name }}
+    - {{ role_name | replace('_', '') }}
     - alpine
     - archlinux
     - centos
