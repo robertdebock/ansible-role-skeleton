@@ -1,5 +1,16 @@
 ---
 # tasks file for {{ role_name }}
+- name: test veriables and environment
+  assert:
+    that:
+      - {{ role_name }}_package_state is defined
+      - {{ role_name }}_package_state is present or
+        {{ role_name }}_package_state is latest or
+        {{ role_name }}_package_state is absent
+      - {{ role_name }}_ignore_docker is defined
+      - {{ role_name }}_ignore_docker or
+        not {{ role_name }}_ignore_docker
+
 - name: install {{ role_name }}
   package:
     name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages {%raw -%}}}{%- endraw %}"
