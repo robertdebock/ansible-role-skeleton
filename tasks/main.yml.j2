@@ -22,7 +22,7 @@
 - name: configure {{ role_name }}
   template:
     src: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}.j2"
-    dest: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory {%raw -%}}}{%- endraw %}"
+    dest: "{% raw -%}{{{%- endraw %} {{ role_name }}_config_directory {%raw -%}}}{%- endraw %}/{% raw -%}{{{%- endraw %} {{ role_name }}_config_file {%raw -%}}}{%- endraw %}"
   notify:
     - restart {{ role_name }}
 
