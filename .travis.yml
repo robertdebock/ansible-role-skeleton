@@ -92,5 +92,6 @@ script:
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: "# output of `travis encrypt secure="THE-TRAVIS-TOKEN"`
+    secure: "# out of `travis encrypt robertdebock:TOKEN-FROM-SLACK`"
+
   email: false
