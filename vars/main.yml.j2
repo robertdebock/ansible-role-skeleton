@@ -1,6 +1,6 @@
 ---
 # vars file for {{ role_name }}
-_{{ role_name }}_packages:
+_{{ role_name }}_requirements:
   default:
     - {{ role_name }}
   Alpine:
@@ -20,6 +20,12 @@ _{{ role_name }}_packages:
   openSUSE Tumbleweed:
     - {{ role_name }}
   Ubuntu:
+    - {{ role_name }}
+
+{{ role_name }}_requirements: "{% raw -%}{{{%- endraw %} _{{ role_name }}_requirements[ansible_distribution ~ '-' ~ ansible_distribution_major_version] | default(_{{ role_name }}_requirements[ansible_distribution] | default(_{{ role_name }}_packages['default'])) {% raw -%}}}{%- endraw %}"
+
+_{{ role_name }}_packages:
+  default:
     - {{ role_name }}
 
 {{ role_name }}_packages: "{% raw -%}{{{%- endraw %} _{{ role_name }}_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version] | default(_{{ role_name }}_packages[ansible_distribution] | default(_{{ role_name }}_packages['default'])) {% raw -%}}}{%- endraw %}"
