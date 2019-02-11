@@ -8,8 +8,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: {{ role_name }}-ubuntu-artful
-    image: ubuntu:artful
+  - name: {{ role_name }}-ubuntu-rolling
+    image: ubuntu:rolling
 provisioner:
   name: ansible
   inventory:

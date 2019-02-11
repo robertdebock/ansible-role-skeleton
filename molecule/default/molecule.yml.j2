@@ -34,7 +34,9 @@ platforms:
     image: opensuse:leap
   - name: {{ role_name }}-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: {{ role_name }}-ubuntu-artful
+  - name: {{ role_name }}-ubuntu-latest
+    image: ubuntu:latest
+  - name: {{ role_name }}-ubuntu-rolling
     image: ubuntu:artful
   - name: {{ role_name }}-ubuntu-devel
     image: ubuntu:devel
