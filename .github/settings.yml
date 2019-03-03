@@ -1,4 +1,4 @@
 ---
 repository:
-  description: Install and configure {{ role_name }} on your system.
+  description: A template to easily create a new role.
   homepage: https://robertdebock.nl/
