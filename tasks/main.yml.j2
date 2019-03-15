@@ -3,7 +3,7 @@
 - name: install {{ role_name }}
   package:
     name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages {%raw -%}}}{%- endraw %}"
-    state: "{% raw -%}{{{%- endraw %} {{ role_name }}_package_state {%raw -%}}}{%- endraw %}"
+    state: present
   register: {{ role_name }}_install_{{ role_name }}
   until: {{ role_name }}_install_{{ role_name }} is succeeded
   retries: 3
