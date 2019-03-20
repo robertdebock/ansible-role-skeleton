@@ -6,4 +6,3 @@
 
   roles:
     - robertdebock.bootstrap
-    - ansible-role-{{ role_name }}

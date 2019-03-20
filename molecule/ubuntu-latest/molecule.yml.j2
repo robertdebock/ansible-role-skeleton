@@ -3,24 +3,17 @@ dependency:
   name: galaxy
   options:
     role-file: requirements.yml
-driver:
-  name: docker
 lint:
   name: yamllint
+driver:
+  name: docker
 platforms:
   - name: {{ role_name }}-ubuntu-latest
     image: ubuntu:latest
+    pre_build_image: yes
 provisioner:
   name: ansible
-  inventory:
-    group_vars:
-      all:
-        {{ role_name }}_ignore_docker: no
   lint:
     name: ansible-lint
 scenario:
   name: ubuntu-latest
-verifier:
-  name: goss
-  lint:
-    name: yamllint

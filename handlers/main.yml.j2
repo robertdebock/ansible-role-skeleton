@@ -5,4 +5,4 @@
     name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
     state: restarted
   when:
-    - ansible_virtualization_type != "docker" or {{ role_name }}_ignore_docker
+    - ansible_virtualization_type != "docker"

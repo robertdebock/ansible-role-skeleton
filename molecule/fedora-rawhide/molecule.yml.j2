@@ -3,29 +3,22 @@ dependency:
   name: galaxy
   options:
     role-file: requirements.yml
-driver:
-  name: docker
 lint:
   name: yamllint
+driver:
+  name: docker
 platforms:
   - name: {{ role_name }}-fedora-rawhide
     image: fedora:rawhide
     registry:
       url: registry.fedoraproject.org
+    pre_build_image: yes
 provisioner:
   name: ansible
-  inventory:
-    group_vars:
-      all:
-        {{ role_name }}_ignore_docker: no
-    host_vars:
-      {{ role_name }}-fedora-rawhide:
-        ansible_python_interpreter: /usr/bin/python3
+  playbooks:
+    prepare: ../resources/prepare.yml
+    converge: ../resources/playbook.yml
   lint:
     name: ansible-lint
 scenario:
   name: fedora-rawhide
-verifier:
-  name: goss
-  lint:
-    name: yamllint
