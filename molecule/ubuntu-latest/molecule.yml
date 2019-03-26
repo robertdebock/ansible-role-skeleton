@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-ubuntu-latest
+  - name: {{ role_name }}-ubuntu-latest
     image: ubuntu:latest
     pre_build_image: yes
 provisioner:

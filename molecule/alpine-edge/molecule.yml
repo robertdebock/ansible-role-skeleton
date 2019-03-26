@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-alpine-edge
+  - name: {{ role_name }}-alpine-edge
     image: alpine:edge
     pre_build_image: yes
     command: sh -c "while true ; do sleep 1 ; done"

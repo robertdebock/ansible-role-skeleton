@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-centos-latest
+  - name: {{ role_name }}-centos-latest
     image: centos:latest
     pre_build_image: yes
 provisioner:

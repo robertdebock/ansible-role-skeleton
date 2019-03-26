@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-fedora-rawhide
+  - name: {{ role_name }}-fedora-rawhide
     image: fedora:rawhide
     pre_build_image: yes
     registry:

@@ -8,48 +8,48 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-alpine-edge
+  - name: {{ role_name }}-alpine-edge
     image: alpine:edge
     pre_build_image: yes
     command: sh -c "while true ; do sleep 1 ; done"
-  - name: skeleton-alpine-latest
+  - name: {{ role_name }}-alpine-latest
     image: alpine:latest
     pre_build_image: yes
     command: sh -c "while true ; do sleep 1 ; done"
-  - name: skeleton-archlinux
+  - name: {{ role_name }}-archlinux
     image: archlinux/base
     pre_build_image: yes
-  - name: skeleton-centos-6
+  - name: {{ role_name }}-centos-6
     image: centos:6
     pre_build_image: yes
-  - name: skeleton-centos-latest
+  - name: {{ role_name }}-centos-latest
     image: centos:latest
     pre_build_image: yes
-  - name: skeleton-debian-latest
+  - name: {{ role_name }}-debian-latest
     image: debian:latest
     pre_build_image: yes
-  - name: skeleton-debian-stable
+  - name: {{ role_name }}-debian-stable
     image: debian:stable
     pre_build_image: yes
-  - name: skeleton-debian-unstable
+  - name: {{ role_name }}-debian-unstable
     image: debian:unstable
     pre_build_image: yes
-  - name: skeleton-fedora-latest
+  - name: {{ role_name }}-fedora-latest
     image: fedora:latest
     pre_build_image: yes
-  - name: skeleton-fedora-rawhide
+  - name: {{ role_name }}-fedora-rawhide
     image: fedora:rawhide
     pre_build_image: yes
-  - name: skeleton-opensuse-leap
+  - name: {{ role_name }}-opensuse-leap
     image: opensuse:leap
     pre_build_image: yes
-  - name: skeleton-ubuntu-latest
+  - name: {{ role_name }}-ubuntu-latest
     image: ubuntu:latest
     pre_build_image: yes
-  - name: skeleton-ubuntu-rolling
+  - name: {{ role_name }}-ubuntu-rolling
     image: ubuntu:rolling
     pre_build_image: yes
-  - name: skeleton-ubuntu-devel
+  - name: {{ role_name }}-ubuntu-devel
     image: ubuntu:devel
     pre_build_image: yes
 provisioner:

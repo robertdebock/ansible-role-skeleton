@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: skeleton-debian-unstable
+  - name: {{ role_name }}-debian-unstable
     image: debian:unstable
     pre_build_image: yes
 provisioner:
