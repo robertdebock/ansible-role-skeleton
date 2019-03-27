@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-ubuntu-devel
+  - name: {{ role_name | replace("_", "-") }}-ubuntu-devel
     image: ubuntu:devel
     pre_build_image: yes
 provisioner:

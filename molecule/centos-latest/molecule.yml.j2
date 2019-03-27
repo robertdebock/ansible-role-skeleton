@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-centos-latest
+  - name: {{ role_name | replace("_", "-") }}-centos-latest
     image: centos:latest
     pre_build_image: yes
 provisioner:

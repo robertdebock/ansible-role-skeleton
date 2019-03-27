@@ -8,10 +8,10 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-alpine-latest
+  - name: {{ role_name | replace("_", "-") }}-alpine-latest
     image: alpine:latest
-    command: sh -c "while true ; do sleep 1 ; done"
     pre_build_image: yes
+    command: sh -c "while true ; do sleep 1 ; done"
 provisioner:
   name: ansible
   playbooks:

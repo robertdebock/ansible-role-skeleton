@@ -8,48 +8,48 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-alpine-edge
+  - name: {{ role_name | replace("_", "-") }}-alpine-edge
     image: alpine:edge
-    command: sh -c "while true ; do sleep 1 ; done"
     pre_build_image: yes
-  - name: {{ role_name }}-alpine-latest
+    command: sh -c "while true ; do sleep 1 ; done"
+  - name: {{ role_name | replace("_", "-") }}-alpine-latest
     image: alpine:latest
-    command: sh -c "while true ; do sleep 1 ; done"
     pre_build_image: yes
-  - name: {{ role_name }}-archlinux
+    command: sh -c "while true ; do sleep 1 ; done"
+  - name: {{ role_name | replace("_", "-") }}-archlinux
     image: archlinux/base
     pre_build_image: yes
-  - name: {{ role_name }}-centos-6
+  - name: {{ role_name | replace("_", "-") }}-centos-6
     image: centos:6
     pre_build_image: yes
-  - name: {{ role_name }}-centos-latest
+  - name: {{ role_name | replace("_", "-") }}-centos-latest
     image: centos:latest
     pre_build_image: yes
-  - name: {{ role_name }}-debian-latest
+  - name: {{ role_name | replace("_", "-") }}-debian-latest
     image: debian:latest
     pre_build_image: yes
-  - name: {{ role_name }}-debian-stable
+  - name: {{ role_name | replace("_", "-") }}-debian-stable
     image: debian:stable
     pre_build_image: yes
-  - name: {{ role_name }}-debian-unstable
+  - name: {{ role_name | replace("_", "-") }}-debian-unstable
     image: debian:unstable
     pre_build_image: yes
-  - name: {{ role_name }}-fedora-latest
+  - name: {{ role_name | replace("_", "-") }}-fedora-latest
     image: fedora:latest
     pre_build_image: yes
-  - name: {{ role_name }}-fedora-rawhide
+  - name: {{ role_name | replace("_", "-") }}-fedora-rawhide
     image: fedora:rawhide
     pre_build_image: yes
-  - name: {{ role_name }}-opensuse-leap
+  - name: {{ role_name | replace("_", "-") }}-opensuse-leap
     image: opensuse:leap
     pre_build_image: yes
-  - name: {{ role_name }}-ubuntu-latest
+  - name: {{ role_name | replace("_", "-") }}-ubuntu-latest
     image: ubuntu:latest
     pre_build_image: yes
-  - name: {{ role_name }}-ubuntu-rolling
-    image: ubuntu:artful
+  - name: {{ role_name | replace("_", "-") }}-ubuntu-rolling
+    image: ubuntu:rolling
     pre_build_image: yes
-  - name: {{ role_name }}-ubuntu-devel
+  - name: {{ role_name | replace("_", "-") }}-ubuntu-devel
     image: ubuntu:devel
     pre_build_image: yes
 provisioner:

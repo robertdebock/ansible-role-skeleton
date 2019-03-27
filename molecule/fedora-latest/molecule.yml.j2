@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-fedora-latest
+  - name: {{ role_name | replace("_", "-") }}-fedora-latest
     image: fedora:latest
     pre_build_image: yes
 provisioner:

@@ -8,11 +8,11 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-fedora-rawhide
+  - name: {{ role_name | replace("_", "-") }}-fedora-rawhide
     image: fedora:rawhide
+    pre_build_image: yes
     registry:
       url: registry.fedoraproject.org
-    pre_build_image: yes
 provisioner:
   name: ansible
   playbooks:

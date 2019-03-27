@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-debian-unstable
+  - name: {{ role_name | replace("_", "-") }}-debian-unstable
     image: debian:unstable
     pre_build_image: yes
 provisioner:

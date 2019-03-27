@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-ubuntu-rolling
+  - name: {{ role_name | replace("_", "-") }}-ubuntu-rolling
     image: ubuntu:rolling
     pre_build_image: yes
 provisioner:

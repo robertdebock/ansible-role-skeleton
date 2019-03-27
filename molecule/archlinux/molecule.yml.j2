@@ -8,7 +8,7 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name }}-archlinux
+  - name: {{ role_name | replace("_", "-") }}-archlinux
     image: archlinux/base
     pre_build_image: yes
 provisioner:
