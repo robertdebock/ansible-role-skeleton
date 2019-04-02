@@ -1,5 +1,13 @@
 ---
 # tasks file for {{ role_name }}
+- name: install requirements
+  package:
+    name: "{% raw -%}{{{%- endraw %} {{ role_name }}_requirements {%raw -%}}}{%- endraw %}"
+    state: present
+  register: {{ role_name }}_install_requirements
+  until: {{ role_name }}_install_requirements is succeeded
+  retries: 3
+
 - name: install {{ role_name }}
   package:
     name: "{% raw -%}{{{%- endraw %} {{ role_name }}_packages {%raw -%}}}{%- endraw %}"
