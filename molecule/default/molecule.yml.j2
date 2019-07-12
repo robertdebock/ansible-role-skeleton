@@ -25,9 +25,6 @@ platforms:
   - name: {{ role_name | replace("_", "-") }}-centos-latest
     image: centos:latest
     pre_build_image: yes
-  - name: {{ role_name | replace("_", "-") }}-debian-latest
-    image: debian:latest
-    pre_build_image: yes
   - name: {{ role_name | replace("_", "-") }}-debian-stable
     image: debian:stable
     pre_build_image: yes
@@ -41,7 +38,7 @@ platforms:
     image: fedora:rawhide
     pre_build_image: yes
   - name: {{ role_name | replace("_", "-") }}-opensuse-leap
-    image: opensuse:leap
+    image: opensuse/leap
     pre_build_image: yes
   - name: {{ role_name | replace("_", "-") }}-ubuntu-latest
     image: ubuntu:latest
