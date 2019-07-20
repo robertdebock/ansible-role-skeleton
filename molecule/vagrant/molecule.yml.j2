@@ -23,7 +23,7 @@ provisioner:
     name: ansible-lint
   inventory:
     host_vars:
-      auditd-fedora:
+      {{ role_name }}-fedora:
         ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: vagrant
