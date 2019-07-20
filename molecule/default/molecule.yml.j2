@@ -58,9 +58,9 @@ provisioner:
     name: ansible-lint
   inventory:
     host_vars:
-      {{ role_name }}-fedora-latest:
+      {{ role_name | replace("_", "-") }}-fedora-latest:
         ansible_python_interpreter: /usr/bin/python3
-      {{ role_name }}-fedora-rawhide:
+      {{ role_name | replace("_", "-") }}-fedora-rawhide:
         ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: default
