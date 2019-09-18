@@ -54,8 +54,6 @@ provisioner:
   playbooks:
     prepare: ../resources/prepare.yml
     converge: ../resources/playbook.yml
-  lint:
-    name: ansible-lint
   inventory:
     host_vars:
       {{ role_name | replace("_", "-") }}-fedora-latest:
