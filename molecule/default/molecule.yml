@@ -8,21 +8,18 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: {{ role_name | replace("_", "-") }}-fedora-latest
-    image: fedora:latest
+  - name: "instance-${TOX_ENVNAME:-default}"
+    image: "${distribution:-robertdebock/docker-fedora-systemd:latest}"
+    command: sh -c "while true ; do sleep 30 ; done"
     pre_build_image: yes
 provisioner:
   name: ansible
   playbooks:
-    prepare: ../resources/prepare.yml
-    converge: ../resources/playbook.yml
+    prepare: prepare.yml
+    converge: playbook.yml
   inventory:
     group_vars:
       all:
         ansible_python_interpreter: /usr/bin/python3
-  config_options:
-    defaults:
-      stdout_callback: yaml
-      bin_ansible_callbacks: true
 scenario:
-  name: fedora-latest
+  name: default

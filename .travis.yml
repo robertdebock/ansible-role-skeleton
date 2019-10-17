@@ -12,7 +12,4 @@ script:
   - ansible-galaxy init --role-skeleton=ansible-role-skeleton test_role
 
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
-  slack:
-    secure: "# out of `travis encrypt robertdebock:TOKEN-FROM-SLACK`"
   email: false
