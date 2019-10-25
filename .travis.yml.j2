@@ -11,28 +11,28 @@ env:
   global:
     - namespace="robertdebock/"
   matrix:
-    - image="docker-alpine-openrc"
-    - image="docker-alpine-openrc" tag="edge"
+    - image="alpine"
+    - image="alpine" tag="edge"
     - namespace="archlinux/" image="base"
-    - image="docker-centos-systemd" tag="7"
-    - image="docker-centos-systemd"
-    - image="docker-debian-systemd"
-    - image="docker-debian-systemd" tag="stable"
-    - image="docker-debian-systemd" tag="unstable"
-    - image="docker-fedora-systemd"
-    - image="docker-fedora-systemd" tag="rawhide"
+    - image="centos" tag="7"
+    - image="centos"
+    - image="debian"
+    - image="debian" tag="stable"
+    - image="debian" tag="unstable"
+    - image="fedora"
+    - image="fedora" tag="rawhide"
     - namespace="opensuse" image="leap"
-    - image="docker-ubuntu-systemd"
-    - image="docker-ubuntu-systemd" tag="devel"
-    - image="docker-ubuntu-systemd" tag="rolling"
+    - image="ubuntu"
+    - image="ubuntu" tag="devel"
+    - image="ubuntu" tag="rolling"
 
 matrix:
   allow_failures:
     - env: namespace="robertdebock/" image="alpine" tag="edge"
-    - env: namespace="robertdebock/" image="docker-debian-systemd" tag="unstable"
-    - env: namespace="robertdebock/" image="docker-fedora-systemd" tag="rawhide"
-    - env: namespace="robertdebock/" image="docker-ubuntu-systemd" tag="rolling"
-    - env: namespace="robertdebock/" image="docker-ubuntu-systemd" tag="devel"
+    - env: namespace="robertdebock/" image="debian" tag="unstable"
+    - env: namespace="robertdebock/" image="fedora" tag="rawhide"
+    - env: namespace="robertdebock/" image="ubuntu" tag="rolling"
+    - env: namespace="robertdebock/" image="ubuntu" tag="devel"
 
 cache:
   - pip
