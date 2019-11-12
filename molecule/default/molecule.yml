@@ -8,15 +8,14 @@ lint:
 driver:
   name: docker
 platforms:
-  - name: "${namespace:-robertdebock-}${image:-fedora}-${TOX_ENVNAME:-default}"
-    image: "${namespace:-robertdeock}${image:-fedora}:${tag:-latest}"
-    command: sh -c "while true ; do sleep 30 ; done"
+  - name: "azure_cli-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-robertdebock}/${image:-fedora}:${tag:-latest}"
+    command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: yes
     pre_build_image: yes
 provisioner:
   name: ansible
-verifier:
-  name: ansible
-  lint:
-    name: ansible-lint
 scenario:
   name: default
