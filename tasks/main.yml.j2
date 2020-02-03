@@ -20,5 +20,3 @@
     name: "{% raw -%}{{{%- endraw %} {{ role_name }}_service {%raw -%}}}{%- endraw %}"
     state: started
     enabled: yes
-  when:
-    - ansible_virtualization_type != "docker"
