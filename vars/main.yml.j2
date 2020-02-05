@@ -1,7 +1,2 @@
 ---
 # vars file for {{ role_name }}
-_{{ role_name }}_packages:
-  default:
-    - {{ role_name }}
-
-{{ role_name }}_packages: "{% raw -%}{{{%- endraw %} _{{ role_name }}_packages[ansible_os_family] | default(_{{ role_name }}_packages['default']) {% raw -%}}}{%- endraw %}"

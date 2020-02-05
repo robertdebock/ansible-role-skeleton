@@ -1,104 +1,149 @@
 {{ role_name }}
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-{{ role_name}}.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-{{ role_name}})
+<img src="https://docs.ansible.com/ansible-tower/3.2.4/html_ja/installandreference/_static/images/logo_invert.png" width="10%" height="10%" alt="Ansible logo" align="right"/>
+<a href="https://travis-ci.org/robertdebock/ansible-role-{{ role_name }}"> <img src="https://travis-ci.org/robertdebock/ansible-role-{{ role_name }}.svg?branch=master" alt="Build status"/></a> <img src="https://img.shields.io/ansible/role/d/"/> <img src="https://img.shields.io/ansible/quality/"/>
 
-The purpose of this role is to install and configure {{ role_name }} on your system.
+<a href="https://github.com/robertdebock/ansible-role-{{ role_name }}/actions"><img src="https://github.com/robertdebock/ansible-role-{{ role_name }}/workflows/GitHub%20Action/badge.svg"/></a>
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-{{ role_name }}) are done on every commit and periodically.
+Install and configure {{ role_name }} on your system.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-{{ role_name }}/issues)
+Example Playbook
+----------------
 
-To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+This example is taken from `molecule/resources/playbook.yml` and is tested on each push, pull request and release.
+```yaml
+---
+- name: Converge
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: robertdebock.{{ role_name }}```
+
+The machine you are running this on, may need to be prepared, I use this playbook to ensure everything is in place to let the role work.
+```yaml
+---
+- name: Converge
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  roles:
+    - role: robertdebock.bootstrap
 ```
-# Docker test:
-pip install molecule ara
-molecule test
-# Vagrant tests
-molecule test --scenario-name vagrant
+
+After running this role, this playbook runs to verify that everything works, this may be a good example how you can use this role.
+```yaml
+---
+- name: Verify
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: check if connection still works
+      ping:
 ```
-There are many scenarios available, please have a look in the `molecule/` directory.
+
+Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```yaml
+---
+# defaults file for {{ role_name }}```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
+
+The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
+
+```yaml
+---
+- robertdebock.bootstrap
+
+```
 
 Context
---------
+-------
+
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/{{ role_name }}.png "Dependency")
 
-Requirements
-------------
-
-- A system installed with required packages to run Ansible. Hint: [bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap).
-- Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
-
-Role Variables
---------------
-
-- {{ role_name }}_parameter: Description of values. [default: value]
-
-Dependencies
-------------
-
-- None known.
 
 Compatibility
 -------------
 
-This role has been tested against the following distributions and Ansible version:
+This role has been tested on these [container images](https://hub.docker.com/):
 
-|distribution|ansible 2.4|ansible 2.5|ansible 2.6|ansible 2.7|ansible devel|
-|------------|-----------|-----------|-----------|-----------|-------------|
-|alpine-edge*|yes|yes|yes|yes|yes*|
-|alpine-latest|yes|yes|yes|yes|yes*|
-|archlinux|yes|yes|yes|yes|yes*|
-|centos-7|yes|yes|yes|yes|yes*|
-|centos-latest|yes|yes|yes|yes|yes*|
-|debian-latest|yes|yes|yes|yes|yes*|
-|debian-stable|yes|yes|yes|yes|yes*|
-|debian-unstable*|yes|yes|yes|yes|yes*|
-|fedora-latest|yes|yes|yes|yes|yes*|
-|fedora-rawhide*|yes|yes|yes|yes|yes*|
-|opensuse-leap|yes|yes|yes|yes|yes*|
-|ubuntu-artful|yes|yes|yes|yes|yes*|
-|ubuntu-devel*|yes|yes|yes|yes|yes*|
-|ubuntu-latest|yes|yes|yes|yes|yes*|
+|container|tags|
+|---------|----|
+|alpine|all|
+|debian|all|
+|el|7, 8|
+|fedora|all|
+|opensuse|all|
+|ubuntu|bionic|
 
-A single star means the build may fail, it's marked as an experimental build.
+The minimum version of Ansible required is 2.7 but tests have been done to:
 
-Example Playbook
-----------------
+- The previous version, on version lower.
+- The current version.
+- The development version.
+
+
+
+Testing
+-------
+
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-{{ role_name }}) are done on every commit, pull request, release and periodically.
+
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-{{ role_name }}/issues)
+
+Testing is done using [Tox](https://tox.readthedocs.io/en/latest/) and [Molecule](https://github.com/ansible/molecule):
+
+[Tox](https://tox.readthedocs.io/en/latest/) tests multiple ansible versions.
+[Molecule](https://github.com/ansible/molecule) tests multiple distributions.
+
+To test using the defaults (any installed ansible version, namespace: `robertdebock`, image: `fedora`, tag: `latest`):
 
 ```
----
-- name: {{ role_name }}
-  hosts: all
-  gather_facts: no
-  become: yes
+molecule test
 
-  roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.{{ role_name }}
-      {{ role_name }}_parameter: value
+# Or select a specific image:
+image=ubuntu molecule test
+# Or select a specific image and a specific tag:
+image="debian" tag="stable" tox
 ```
 
-To install this role:
-- Install this role individually using `ansible-galaxy install robertdebock.{{ role_name }}`
+Or you can test multiple versions of Ansible, and select images:
+Tox allows multiple versions of Ansible to be tested. To run the default (namespace: `robertdebock`, image: `fedora`, tag: `latest`) tests:
 
-Sample roles/requirements.yml: (install with `ansible-galaxy install -r roles/requirements.yml
 ```
----
-- name: robertdebock.bootstrap
-- name: robertdebock.{{ role_name }}
+tox
+
+# To run CentOS (namespace: `robertdebock`, tag: `latest`)
+image="centos" tox
+# Or customize more:
+image="debian" tag="stable" tox
 ```
 
 License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------
 
-[Robert de Bock](https://robertdebock.nl/) <robert@meinit.nl>
+[Robert de Bock](https://robertdebock.nl/)
