@@ -6,7 +6,7 @@ To use this Ansible role skeleton, as [described in Ansible Galaxy documentation
 ```
 ansible-galaxy init --role-skeleton=skeleton role_name
 cd ./role_name/
-find ./molecule -name 'playbook.yml' -exec sed -i -e '$a\' {} \;
+find ./molecule -name 'converge.yml' -exec sed -i -e '$a\' {} \;
 find ./molecule -name 'molecule.yml' -exec sed -i -e '$a\' {} \;
 find ./vars -name '*.yml' -exec sed -i -e '$a\' {} \;
 find ./ -name .travis.yml -exec sed -i -e '$a\' {} \;
