@@ -15,13 +15,13 @@ Here is how you can help, a lot of steps are related to GitHub, not specifically
 
 ### 1. Make an issue.
 
-When you spot an issue, [create an issue](https://github.com/robertdebock/swap/issues).
+When you spot an issue, [create an issue](https://github.com/robertdebock/aide/issues).
 
 Making the issue help me and others to find similar problems in the future.
 
 ### 2. Fork the project.
 
-On the top right side of [the repository on GitHub](https://github.com/robertdebock/swap), click `fork`. This copies everything to your GitHub namespace.
+On the top right side of [the repository on GitHub](https://github.com/robertdebock/aide), click `fork`. This copies everything to your GitHub namespace.
 
 ### 3. Make the changes
 
@@ -30,7 +30,7 @@ In you own GitHub namespace, make the required changes.
 I typically do that by cloning the repository (in your namespace) locally:
 
 ```
-git clone git@github.com:YOURNAMESPACE/swap.git
+git clone git@github.com:YOURNAMESPACE/aide.git
 ```
 
 Now you can start to edit on your laptop.

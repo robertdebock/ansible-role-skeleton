@@ -24,8 +24,5 @@ A clear and concise description of what you expected to happen.
 
 **Environment**
 - Control node OS: [e.g. Debian 9] (`cat /etc/os-release`)
-- Control node Ansible version: [e.g. 2.6.2] (`ansible --version`)
+- Control node Ansible version: [e.g. 2.9.1] (`ansible --version`)
 - Managed node OS: [e.g. CentOS 7] (`cat /etc/os-release`)
-
-**Additional context**
-Add any other context about the problem here.
