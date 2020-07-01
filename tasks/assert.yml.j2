@@ -1,0 +1,11 @@
+---
+- name: test if {{ role_name }}_X is set correctly
+  assert:
+    that:
+      - {{ role_name }}_X is defined
+      - {{ role_name }}_X | length > 0
+      - {{ role_name }}_X is iterable
+      - {{ role_name }}_X | int
+      - {{ role_name }}_X | int >= 0
+      - {{ role_name }}_X | type_debug == "bool"
+      - {{ role_name }}_X in ["a", "b"]
