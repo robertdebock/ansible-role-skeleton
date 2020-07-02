@@ -8,6 +8,7 @@ ansible-galaxy init --role-skeleton=skeleton role_name
 cd ./role_name/
 find ./molecule -name 'converge.yml' -exec sed -i -e '$a\' {} \;
 find ./molecule -name 'molecule.yml' -exec sed -i -e '$a\' {} \;
+find ./molecule -name 'converge.yml' -exec sed -i -e '$a\' {} \;
 find ./vars -name '*.yml' -exec sed -i -e '$a\' {} \;
 find ./ -name .travis.yml -exec sed -i -e '$a\' {} \;
 find ./meta -name main.yml -exec sed -i -e '$a\' {} \;
