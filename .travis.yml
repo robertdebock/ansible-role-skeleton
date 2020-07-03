@@ -9,10 +9,7 @@ install:
   - pip install ansible
 
 script:
-  - pwd
-  - ls
-  - tree
-  - find ./
+  - cd ../
   - ansible-galaxy init --role-skeleton=ansible-role-skeleton test_role
 
 notifications:
