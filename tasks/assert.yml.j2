@@ -3,10 +3,9 @@
   assert:
     that:
       - {{ role_name }}_X is defined
-      - {{ role_name }}_X | length > 0
       - {{ role_name }}_X is iterable
       - {{ role_name }}_X is number
-      - {{ role_name }}_X | int >= 0
-      - {{ role_name }}_X | type_debug == "bool"
+      - {{ role_name }}_X is boolean
+      - {{ role_name }}_X = 0
       - {{ role_name }}_X in [ "a", "b" ]
     quiet: yes
