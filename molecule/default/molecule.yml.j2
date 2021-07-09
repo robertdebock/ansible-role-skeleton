@@ -1,11 +1,15 @@
 ---
+#
+# Ansible managed
+#
 dependency:
   name: galaxy
   options:
     role-file: requirements.yml
 lint: |
-  yamllint molecule/default/converge.yml
-  ansible-lint molecule/default/converge.yml
+  set -e
+  yamllint .
+  ansible-lint
 driver:
   name: docker
 platforms:
@@ -18,11 +22,5 @@ platforms:
     pre_build_image: yes
 provisioner:
   name: ansible
-  config_options:
-    defaults:
-      stdout_callback: yaml
-      bin_ansible_callbacks: yes
 verifier:
   name: ansible
-scenario:
-  name: default

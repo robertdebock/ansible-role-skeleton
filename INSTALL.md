@@ -5,15 +5,9 @@ To use this Ansible role skeleton, as [described in Ansible Galaxy documentation
 
 ```
 ansible-galaxy init --role-skeleton=skeleton role_name
-cd ./role_name/
-find ./molecule -name 'converge.yml' -exec sed -i -e '$a\' {} \;
-find ./molecule -name 'molecule.yml' -exec sed -i -e '$a\' {} \;
-find ./molecule -name 'converge.yml' -exec sed -i -e '$a\' {} \;
-find ./vars -name '*.yml' -exec sed -i -e '$a\' {} \;
-find ./ -name .travis.yml -exec sed -i -e '$a\' {} \;
-find ./meta -name main.yml -exec sed -i -e '$a\' {} \;
-find ./handlers -name main.yml -exec sed -i -e '$a\' {} \;
-find ./defaults -name main.yml -exec sed -i -e '$a\' {} \;
+mv role_name ansible-role-role_name
+cd ./ansible-role-role_name/
+find ./ -name '*-e' -exec rm {} \;
 rm INSTALL.md
 ```
 
