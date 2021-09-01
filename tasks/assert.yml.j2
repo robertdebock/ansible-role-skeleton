@@ -1,7 +1,7 @@
 ---
 
 - name: test if {{ role_name }}_X is set correctly
-  assert:
+  ansible.builtin.assert:
     that:
       - {{ role_name }}_X is defined
       - {{ role_name }}_X is iterable

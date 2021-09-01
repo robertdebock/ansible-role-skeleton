@@ -2,6 +2,6 @@
 # tasks file for {{ role_name }}
 
 - name: include assert.yml
-  import_tasks: assert.yml
+  ansible.builtin.import_tasks: assert.yml
   run_once: yes
   delegate_to: localhost
