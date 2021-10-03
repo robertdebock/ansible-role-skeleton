@@ -7,7 +7,6 @@ To use this Ansible role skeleton, as [described in Ansible Galaxy documentation
 ansible-galaxy init --role-skeleton=skeleton role_name
 mv role_name ansible-role-role_name
 cd ./ansible-role-role_name/
-find ./ -name '*-e' -exec rm {} \;
 rm INSTALL.md
 ```
 
@@ -22,5 +21,3 @@ role_skeleton_ignore = ^.git$,^.*/.git_keep$
 Followed by `ansible-galaxy init role_name`.
 
 Don't include `ansible-role` to the role name, for example use `java` instead of `ansible-role-java`.
-
-To allow Slack notifications, set `slack_token` as a (secret) variable in Travis CI.
