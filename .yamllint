@@ -13,4 +13,4 @@ rules:
 
 ignore: |
   .tox/
-  .cache
+  .cache/
