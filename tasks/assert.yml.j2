@@ -4,6 +4,8 @@
   ansible.builtin.assert:
     that:
       - {{ role_name }}_X is defined
+      - {{ role_name }}_X is string
+      - {{ role_name }}_X is not none
       - {{ role_name }}_X is iterable
       - {{ role_name }}_X is number
       - {{ role_name }}_X is boolean
