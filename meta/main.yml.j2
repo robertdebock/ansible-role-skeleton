@@ -5,7 +5,7 @@ galaxy_info:
   description: Install and configure {{ role_name }} on your system.
   license: Apache-2.0
   company: none
-  min_ansible_version: "2.10"
+  min_ansible_version: "2.12"
 
   platforms:
     - name: Alpine
@@ -32,9 +32,18 @@ galaxy_info:
 
   galaxy_tags:
     - {{ role_name | replace('_', '') }}
+    - application
+    - cloud
+    - database
     - development
+    - infrastructure
+    - linux
     - monitoring
+    - networking
+    - storage
     - security
     - system
+    - tools
+    - windows
 
 dependencies: []
