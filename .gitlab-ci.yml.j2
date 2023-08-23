@@ -1,5 +1,5 @@
 ---
-image: "robertdebock/github-action-molecule:5.0.0"
+image: "robertdebock/github-action-molecule:5.0.2"
 
 variables:
   PY_COLORS: 1
@@ -21,7 +21,7 @@ molecule:
       - image: "debian"
         tag: "latest"
       - image: "debian"
-        tag: "bookworm"
+        tag: "bullseye"
       - image: "enterpriselinux"
         tag: "7"
       - image: "enterpriselinux"
@@ -29,11 +29,9 @@ molecule:
       - image: "enterpriselinux"
         tag: "latest"
       - image: "fedora"
-        tag: "36"
+        tag: "37"
       - image: "fedora"
         tag: "latest"
-      - image: "fedora"
-        tag: "rawhide"
       - image: "opensuse"
         tag: "latest"
       - image: "ubuntu"
