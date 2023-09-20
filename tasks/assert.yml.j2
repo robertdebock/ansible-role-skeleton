@@ -1,6 +1,6 @@
 ---
 
-- name: assert | Test if {{ role_name }}_X is set correctly
+- name: assert | Test {{ role_name }}_X
   ansible.builtin.assert:
     that:
       - {{ role_name }}_X is defined
