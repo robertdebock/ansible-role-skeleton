@@ -1,7 +1,7 @@
 ---
 # tasks file for {{ role_name }}
 
-- name: Include assert.yml
+- name: Import assert.yml
   ansible.builtin.import_tasks:
     file: assert.yml
   run_once: yes
