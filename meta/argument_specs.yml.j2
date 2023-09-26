@@ -1,0 +1,21 @@
+---
+
+argument_specs:
+  main:
+    short_description: "Install and configure {{ role_name }} on your system."
+    description: >
+      Install and configure {{ role_name }} on your system.
+    author: Robert de Bock
+    options:
+      {{ role_name }}_X:
+        type: "str"
+        default: "DEFAULT"
+        description: "DESCRIPTION"
+      {{ role_name }}_Y:
+        type: "list"
+        default: []
+        description: "DESCRIPTION"
+      {{ role_name }}_Z:
+        type: "bool"
+        default: yes
+        description: "DESCRIPTION"
