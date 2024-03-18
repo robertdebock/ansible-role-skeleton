@@ -1,8 +1,8 @@
 ---
 - name: Verify
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
 
   tasks:
     - name: Check if connection still works
