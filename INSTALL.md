@@ -1,7 +1,7 @@
 Installation
 =========
 
-To use this Ansible role skeleton, as [described in Ansible Galaxy documentation](https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#using-a-custom-role-skeleton):
+To use this Ansible role skeleton, as [described in Ansible documentation](https://docs.ansible.com/ansible/latest/galaxy/dev_guide.html#using-a-custom-role-skeleton):
 
 ```
 ansible-galaxy init --role-skeleton=skeleton role_name
